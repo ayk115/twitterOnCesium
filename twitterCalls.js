@@ -5,10 +5,10 @@ var client = new Twitter({
   consumer_secret: 'KYqFv5RAJUGj28nhX6iO7bLCr81IjK3AMAEVjzvBi1dMDDAkIH',
   access_token_key: '2597302057-3cOZ19lySDHGMwY3hl73B8T5NN1GtZUjtnZiSWH',
   access_token_secret: 'pRytwuPmqPv0UIPG9VwllacILJ5ZuNVg5pFfZMapDfmnT',
-  request_options: {
+/*  request_options: {
   	proxy: 'http://proxy.iiit.ac.in:8080'
   }
-});
+*/});
 
 
 exports.getTwitter = function (req, res) {
