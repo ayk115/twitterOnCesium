@@ -8,16 +8,41 @@
   <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>Hello World!</title>
+  <script src="./Cesium/jquery.min.js"></script>
   <script src="./Cesium/Cesium.js"></script>
   <style>
       @import url(./Cesium/Widgets/widgets.css);
       html, body, #cesiumContainer {
           width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
       }
+      .leftDiv {
+        position: absolute;
+        z-index: 1;
+      }
+      .rightDiv {
+        position: absolute;
+        z-index: 1;
+        right: 5px;
+        top: 50px;
+        width: 300px;
+      }
   </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-  <div id="cesiumContainer"></div>
+  <!--div class="leftDiv">
+    <button id="cityLocation" click="">My City</button>
+    <button id="countryLocation">My Country</button>  
+  </div-->
+  <div class="rightDiv">
+    <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body"></div>
+    </div>
+  </div>
+  <div id="cesiumContainer" style="position:relative; z-index:0"></div>
   <script src="cesiumTwitter.js"></script>
 </body>
 </html>

@@ -7,28 +7,11 @@
     var compression = require('compression');
     var url = require('url');
     var request = require('request');
-    var twitter = require('twitter');
-    var client = new Twitter({
-      consumer_key: 'fRxKmOHf5ybIDZjM67VVlgxAi',
-      consumer_secret: 'KYqFv5RAJUGj28nhX6iO7bLCr81IjK3AMAEVjzvBi1dMDDAkIH',
-      access_token_key: '2597302057-3cOZ19lySDHGMwY3hl73B8T5NN1GtZUjtnZiSWH',
-      access_token_secret: 'pRytwuPmqPv0UIPG9VwllacILJ5ZuNVg5pFfZMapDfmnT',
-      request_options: {
-        proxy: 'http://proxy.iiit.ac.in:8080'
-      }
-    });
-
-    var params = {id : '1'};
-    client.get('trends/place', params, function(error, tweets, response){
-      if (!error) {
-        console.log(tweets[0]['trends']);
-      }
-      console.log(error);
-    });    
+    var twitter = require('./twitterCalls');
 
     var yargs = require('yargs').options({
         'port' : {
-            'default' : process.env.PORT || 8080,
+            'default' : 8080,
             'description' : 'Port to listen on.'
         },
         'public' : {
@@ -63,6 +46,8 @@
 
     var app = express();
     app.use(compression());
+    app.use('/twitter', twitter.getTwitter);
+    console.log(express.static(__dirname));
     app.use(express.static(__dirname));
 
     function getRemoteUrlFromParam(req) {
@@ -151,7 +136,7 @@
         }
     });
 
-    server.on('error', function (e) {
+    /*server.on('error', function (e) {
         if (e.code === 'EADDRINUSE') {
             console.log('Error: Port %d is already in use, select a different port.', argv.port);
             console.log('Example: node server.js --port %d', argv.port + 1);
@@ -173,7 +158,6 @@
         server.close(function() {
             process.exit(0);
         });
-    });
+    });*/
 
 })();
-

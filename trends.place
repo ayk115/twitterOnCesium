@@ -1,0 +1,9 @@
+{ 
+	name: 'Okayama',
+	placeType: { code: 7, name: 'Town' },
+	url: 'http://where.yahooapis.com/v1/place/90036018',
+	parentid: 23424856,
+	country: 'Japan',
+	woeid: 90036018,
+	countryCode: 'JP' 
+}
