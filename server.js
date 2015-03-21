@@ -46,7 +46,7 @@
 
     var app = express();
     app.use(compression());
-    app.use('/twitter', twitter.getTwitter);
+    app.use('/twitterOnCesium/twitter', twitter.getTwitter);
     console.log(express.static(__dirname));
     app.use(express.static(__dirname));
 

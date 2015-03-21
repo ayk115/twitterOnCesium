@@ -41,7 +41,7 @@ handler.setInputAction(function(movement) {
 	if(picked) {
 		var entity = picked.id;
 		sendObj = {qtype : 'place', params : {id : entity.id}};
-		$.get('/twitter', sendObj, function(data, status) 
+		$.get('/twitterOnCesium/twitter', sendObj, function(data, status) 
 		{
 			var trends = data[0].trends, str = '';
 			for(i=0; i<trends.length; i++)
@@ -116,4 +116,4 @@ function getAvailable(data, status) {
 
 //sendObj = {qtype : 'place', params : {id : '1'}};
 sendObj = {qtype : 'available'};
-$.get('/twitter', sendObj, getAvailable);
+$.get('/twitterOnCesium/twitter', sendObj, getAvailable);
